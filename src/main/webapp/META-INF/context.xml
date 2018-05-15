@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/monitoring">
+  <Resource auth="Container" 
+            factory="com.zaxxer.hikari.HikariJNDIFactory" 
+            dataSourceClassName="org.apache.derby.jdbc.ClientDataSource"
+            name="jdbc/monitor_server"  
+            type="javax.sql.DataSource" 
+            dataSource.databaseName="monitoring"
+            dataSource.serverName="localhost"
+            dataSource.portNumber="1527"
+            dataSource.user="monitor"
+            dataSource.password="monitor"
+            connectionTimeout="10000"
+            maximumPoolSize="5"
+            maxLifetime="600000"
+            closeMethod="close"/>
+</Context>
+
+<!--
+  <Resource auth="Container" 
+            factory="com.zaxxer.hikari.HikariJNDIFactory" 
+            dataSourceClassName="oracle.jdbc.pool.OracleDataSource"
+            dataSource.driverType="thin"
+            name="jdbc/monitor_server"  
+            type="javax.sql.DataSource" 
+            dataSource.databaseName="XE"
+            dataSource.serverName="192.168.1.12"
+            dataSource.portNumber="1521"
+            dataSource.user="monitoring"
+            dataSource.password="zoltrix"
+            connectionTimeout="10000"
+            maximumPoolSize="5"
+            maxLifetime="600000"
+            closeMethod="close"/>
+-->
+
+<!--
+  <Resource auth="Container" 
+            factory="com.zaxxer.hikari.HikariJNDIFactory" 
+            driverClassName="oracle.jdbc.OracleDriver" 
+            logAbandoned="true" 
+            maxIdle="2" 
+            maxTotal="5" 
+            maxWaitMillis="-1" 
+            name="jdbc/monitor_server" 
+            password="zoltrix" 
+            removeAbandonedOnBorrow="true" 
+            removeAbandonedTimeout="60" 
+            type="javax.sql.DataSource" 
+            urlrl="jdbc:oracle:thin:@192.168.1.12:1521:xe" 
+            username="monitoring"/>
+-->

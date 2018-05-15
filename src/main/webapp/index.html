@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<link href="css/styles.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />          	
+		<script type="text/javascript" src="script/monitoring.js"></script>
+		<script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/jquery.fancybox.pack.js"></script>
+
+		<title>Мониторинг</title>
+
+	</head>
+
+
+
+<body>
+
+<script>
+
+var alarmView = false;// отображение только аварийных параметров
+
+var check_array = [[1,0],[2,0]];
+
+var paramGroups = [[4,'group4',false],[2,'group2',false],[15,'group15',false],[7,'group7',false],
+
+    [6,'group6',false],[10,'group10',false],[3,'group3',false],[13,'group13',false],[14,'group14',false],
+
+    [5,'group5',false],[1,'group1',false],[9,'group9',false],
+
+    [11,'group11',false],[12,'group12',false],[17,'group17',false],[20,'group20',false]];
+
+
+
+startGettingData();
+
+setInterval(startGettingData, 60000);
+//-----------------------------------------------------------------------
+
+function startGettingData(){
+
+    for(var i=0; i < paramGroups.length; i++){
+
+        setTimeout("getParametersByGroup("+paramGroups[i][0]+",'"+paramGroups[i][1]+"',"+i+");",i*1000);
+
+    }    
+/*        
+    getParametersByGroup(4,'group4');
+    setTimeout("getParametersByGroup(15,'group15');",1000);
+*/
+
+}
+
+//-----------------------------------------------------------------------
+
+function setAlarmView(){
+
+    var result = '';
+	var div_handle = document.getElementById('alarmMenu'); 
+
+	if(alarmView){
+
+		alarmView = false;
+		result = 'Аварийные параметры';
+
+	}
+	else{
+
+		alarmView = true;
+		result = 'Все параметры';	
+
+	}
+
+	if(div_handle)     
+        div_handle.innerHTML=result; 
+
+		
+
+	for(var i=0; i < paramGroups.length; i++){
+
+        setTimeout("getParametersByGroup("+paramGroups[i][0]+",'"+paramGroups[i][1]+"',"+i+");",0);
+
+    }		
+
+}
+
+//-----------------------------------------------------------------------
+
+function pickOutIds(){
+
+    var ids = '';
+
+    for (var i = 0; i < check_array.length; i++) {
+
+        if(check_array[i][1]==1){
+
+            if(ids.length==0)
+                ids+=check_array[i][0];
+
+            else
+                ids+=','+check_array[i][0];
+
+        }
+
+    }
+
+
+
+    if(ids.length>0){
+        jQuery.fancybox.open({href: 'choose_period.html?action=21&argument='+ids, type: 'iframe', width: '60%'});  
+	}	
+
+    else{
+        alert("Не выбраны параметры!");
+	}
+}
+
+//-----------------------------------------------------------------------
+
+function setCheckStatus(id){
+
+    var i = -1;
+
+    for(var ch = 0; ch < check_array.length; ++ch) {
+
+        if(check_array[ch][0] == id){
+
+            i = ch;
+            break;
+        }
+
+    }
+
+
+    if(i==-1){
+        check_array.push([id,1]);
+    }
+
+    else{
+        check_array[i][1] = check_array[i][1]==1 ? 0:1;
+    }
+
+}       
+
+
+
+</script>
+
+
+
+<div align="center"><p><b>Состояние параметров систем BIS, BILL-MASTER, ЕРКЦ</b></p></div>
+
+
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+    <td bgcolor="white">
+
+    <table border="0" cellspacing="1" cellpadding="4">
+
+    <tr bgcolor="#23a449">
+
+    <td><a href="/monitoring/manager" class="menulink">Управление системой мониторинга</a>
+
+    <td><a href="javascript:setAlarmView();" class="menulink"><div id="alarmMenu">Аварийные параметры</div></a>
+
+    <td><a href="javascript:pickOutIds();" class="menulink">Графики</a>
+
+
+
+    </table>
+
+    </td>
+
+</tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+    <td bgcolor="white">
+
+    <table border="0" cellspacing="1" cellpadding="4">
+
+    <tr bgcolor="#550097">
+
+     <td><a href="" class="menulink22">Управление абонентами</a>
+
+    <td><a href="" class="menulink22">Тарификация в домашней сети</a>
+
+    <td><a href="" class="menulink22">БД Биллинга</a>
+
+    <td><a href="" class="menulink22">RT-контроль</a>
+
+    <td><a href="" class="menulink22">Тарификация в роуминге</a>
+
+    <td><a href="" class="menulink22">Прием платежей</a>
+
+    <td><a href="" class="menulink22">Сервера HRS</a>
+
+    <td><a href="" class="menulink22">Предбиллинг</a>
+
+    </table>
+
+    </td>
+
+</tr>
+
+</table>
+
+
+
+<br>
+
+
+
+<table cellspacing="10"> <!-- главная таблица -->
+
+<tr valign="top">
+
+<td width=50%>
+
+
+
+<br>
+
+
+
+<div id="group1">
+
+</div>
+
+</table>  <!-- главная таблица -->
+
+<br>
+
+
+
+</body>
+
+</html>

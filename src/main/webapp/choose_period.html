@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="windows-1251">
+        <link href="css/jquery.ui.core.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.ui.theme.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.ui.datepicker.css" rel="stylesheet" type="text/css"/>        
+        <link href="css/jquery-calendar.css" rel="stylesheet" type="text/css"/>        
+
+        <script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/jquery.ui.core.js"></script>
+        <script type="text/javascript" src="script/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="script/jquery.ui.datepicker.js"></script>
+        <script type="text/javascript" src="script/jquery-calendar.js"></script>
+
+</head>
+<body>
+    	<script>
+       var period = location.search.substring(1);
+       
+        $(document).ready(function (){
+            $("#start_date, #end_date").calendar();
+	});
+        //-------------------------------------------------------------------------
+        function setPeriod(){
+            period = 'graph.html?'+period + ';' + document.forms[0].start_date.value+'-'+
+                document.forms[0].end_date.value;
+            period = period.replace(new RegExp(' ','g'),'_');
+            parent.jQuery.fancybox.open({href: period, type: 'iframe', width: '90%'});            
+        }            
+
+	</script>
+
+
+
+    <form>
+        <p>Показывать данные за период
+        с: <input type="text" id="start_date">
+        по: <input type="text" id="end_date">
+        </p>
+    </form>        
+        
+    <br><br><br><br><br><br><br><br><br><br><br>
+    
+    <a class="ok" href="javascript:setPeriod();">Выполнить</a> 
+    <a class="cancel" href="javascript:parent.jQuery.fancybox.close();">Оменить</a>
+    <a class="l" href="javascript:test11();">test</a>
+    <br><br>
+
+</body>
+</html>

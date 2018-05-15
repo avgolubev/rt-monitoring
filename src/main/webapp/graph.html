@@ -1,0 +1,99 @@
+<!--
+Построение графиков по параметрам
+-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+        <!--[if IE]><script language="javascript" type="text/javascript" src="script/excanvas.min.js"></script><![endif]-->
+        <script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/jquery.flot.js"></script>
+    </head>
+    <body>
+
+        <div style="float:left;">&nbsp;&nbsp</div>
+        <div id="placeholder" style="width:90%;height:450px;float:left;"></div>
+        <div style="clear: both;"></div>
+        <div id="legend" style="float:left;"></div>
+        <div style="clear:both;"></div>
+        
+	<br><br><br><br><br><br>        
+
+        <script type="text/javascript">
+            $.ajax({
+	        url: 'client',
+		type:	'GET',
+  		dataType: 'json',
+  		data: location.search.substring(1),
+  		success: makeGraph
+	    });
+            //----------------------------------------------
+
+            var hide = [];
+            var all_data;
+
+            // свойства графика
+            var plot_conf = {
+                series: {
+                    lines: { show: true,lineWidth: 1},
+                    points: { show: true }
+                },
+                
+                xaxis: {
+                    //ticks: 8,
+                    mode: "time",
+                    //timeformat: "%0d.%0m.%y %H:%M"
+                    timeformat: "%H:%M"
+                },
+                yaxis: {
+                    //   autoscaleMargin: 0.5
+                },
+                legend: {
+                    container: $("#legend")
+                }
+            };
+            //---------------------------------------------------    
+
+            function redraw() {
+                var data = [];
+                for(var j = 0; j < all_data.length; ++j)
+                    if(!hide[j]) // что скрываем, а что нет
+                        data.push(all_data[j]);
+                
+                $.plot($("#placeholder"), data, plot_conf);
+            }
+            //---------------------------------------------------
+            function makeGraph(req){
+
+                all_data =req;
+                // преобразуем даты в UTC
+                for(var j = 0; j < all_data.length; ++j) {
+                    for(var i = 0; i < all_data[j].data.length; ++i)
+                        all_data[j].data[i][0] = Date.parse(all_data[j].data[i][0]+" GMT");
+                }    
+
+                if(all_data[0].data[all_data[0].data.length-1][0]-all_data[0].data[0][0] > 86400000)
+			plot_conf.xaxis.timeformat="%0d.%0m.%y %H:%M";
+
+		redraw();
+                plot_conf.legend.show = false;
+                
+                var legend = document.getElementById('legend'); // еще IE не умеет заменять innerHTML в table
+                var legend_tbl = legend.getElementsByTagName('table')[0];
+                var legend_html = '<table style="font-size: smaller; color: rgb(84, 84, 84);"><tbody>';
+                for(var i = 0; i < legend_tbl.rows.length; i++) {
+                    legend_html += '<tr>' +
+                        '<td><input type="checkbox" onclick="hide['+ i +']=!hide['+ i +'];redraw();" checked="1"></td>'
+                        + legend_tbl.rows[i].innerHTML
+                        + '</tr>';
+                }
+                legend_html += "</tbody></table>";
+                legend.innerHTML = legend_html;
+            }
+
+        </script>
+
+    </body>
+</html>

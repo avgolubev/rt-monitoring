@@ -1,0 +1,123 @@
+.text1 {
+	FONT-SIZE: 13px; COLOR: #0f3199; FONT-FAMILY: Times, Courier New, Times New Roman, Arial; TEXT-DECORATION: none
+}
+.text2 {
+	FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #0f3199; TEXT-DECORATION: none
+}
+.text3 {
+	FONT-SIZE: 25px; FONT-WEIGHT: bold; COLOR: #0f3199; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+.scale {
+	FONT-SIZE: 10px; COLOR: #0f3199; FONT-FAMILY: Arial, sans-serif; TEXT-DECORATION: none
+}
+.nav {
+	FONT-SIZE: 12px; COLOR: #333333
+}
+.menutext {
+	FONT-SIZE: 13px; COLOR: #22519F; TEXT-DECORATION: none
+}
+.menutext2 {
+	FONT-SIZE: 13px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.menutext3 {
+	FONT-SIZE: 13px; COLOR: #000000; TEXT-DECORATION: none
+}
+.submenu {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #0f3199; TEXT-DECORATION: none
+}
+.asubmenu {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #000000; TEXT-DECORATION: none
+}
+.aamenu {
+	FONT-SIZE: 10pt; COLOR: #000000; TEXT-INDENT: 12px; LINE-HEIGHT: 22px; TEXT-DECORATION: underline
+}
+.newsdate {
+	FONT-WEIGHT: normal; FONT-SIZE: 15px; COLOR: #808080; TEXT-DECORATION: none
+}
+.newstext {
+	FONT-WEIGHT: normal; FONT-SIZE: 16px; COLOR: #000000; TEXT-DECORATION: none
+}
+.newstext_i {
+	FONT-WEIGHT: bold; font-style: italic; FONT-SIZE: 16px; COLOR: #000000; TEXT-DECORATION: none
+}
+.newstext2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 16px; COLOR: #392B80; TEXT-DECORATION: none
+}
+.newstext3 {
+	FONT-SIZE: 16px; font-weight: bold; COLOR: #0092DF; TEXT-DECORATION: none
+}
+.newstext4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #392B80; TEXT-DECORATION: none
+}
+.snewsdate {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #808080; TEXT-DECORATION: none
+}
+.snewstext {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #000000; TEXT-DECORATION: none
+}
+.snewstext2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #399933; TEXT-DECORATION: none
+}
+.snewstext3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #FF3333; TEXT-DECORATION: none
+}
+.snewstext4 {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #FFbf33; TEXT-DECORATION: none
+}
+.t {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, sans-serif
+}
+.red {
+	COLOR: red
+}
+.green {
+	COLOR: green
+}
+
+.menulink {
+	FONT-WEIGHT: normal; FONT-SIZE: 17px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.menulink_n {
+	FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none
+}
+
+.menulink22 {
+	FONT-WEIGHT: normal; FONT-SIZE: 15px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+
+.menulink22a {
+	FONT-WEIGHT: normal; FONT-SIZE: 15px; COLOR: #red; TEXT-DECORATION: none
+}
+
+.menulink3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 28px; COLOR: black; TEXT-DECORATION: none
+}
+.menulink4 {
+	FONT-WEIGHT: normal; FONT-SIZE: 28px; COLOR: white; TEXT-DECORATION: none
+}
+
+.menulink2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 16px; TEXT-DECORATION: none
+}
+
+.copyright {
+	FONT-SIZE: 13px; COLOR: #000000; TEXT-DECORATION: none
+}
+.hottours {
+	FONT-SIZE: 13px; COLOR: #000000; TEXT-DECORATION: none
+}
+.main_title {
+	FONT-SIZE: 15px; COLOR: #ffffff; font-weight: bold; TEXT-DECORATION: none
+}
+.middle_title {
+	FONT-SIZE: 15px; font-weight: bold; COLOR: #0092DF; TEXT-DECORATION: none
+}
+.middle_title2 {
+	FONT-SIZE: 15px; font-weight: bold; COLOR: #FF3333; TEXT-DECORATION: none
+}
+.country_title {
+	FONT-SIZE: 18px; font-weight: bold; COLOR: #0092DF; TEXT-DECORATION: none
+}
